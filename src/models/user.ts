@@ -1,19 +1,6 @@
-import { OkPacket, RowDataPacket } from "mysql2"
+import { OkPacket } from "mysql2"
 import { connection } from "../db"
-
-export interface IUser extends RowDataPacket {
-  user_id?: number
-  first_name: string
-  last_name: string
-  email: string
-  password_hash: string
-  birthday: string
-  gender: string
-  active: boolean
-  admin: boolean
-  created_at?: number
-  updated_at?: number
-}
+import { IUser } from "../types"
 
 export class User {
   readAll(): Promise<IUser[]> {
