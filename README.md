@@ -49,4 +49,5 @@ Installation:
 }
 `
 
-## Thanks for Visiting
+## Copyright and license
+The MIT License (MIT). Please see License File for more information.
