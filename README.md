@@ -25,29 +25,33 @@ Installation:
 3. Run `npm run build` to compile the TS code
 4. Run `npm start` to start the application
 
-### Routes
+## Routes
 
-#### basic
+### basic
 - `GET /health` check health(status).
 
-#### user
-- `GET /api/v1/user/all` get all register user
-- `GET /api/v1/user/:user_id` get user by user_id
-- `GET /api/v1/user/:user_id` get user by user_id
-- `POST /api/v1/user/new` create new user
-- `PUT /api/v1/user/:user_id` update user by user_id
+### User Route
 
-*user post data*
-`
-{
-    first_name: string,
-    last_name: string,
-    email: string(unique),
-    password: string,
-    gender: 'male'|'female'|'others',
-    birthday: 'dd-mm-yyyy'
-}
-`
+**REST Endpoints**
+
+| method | path                   | discription            |
+| ------ | ---------------------- | ---------------------- |
+| GET    | /api/v1/user/all       | get all register user  |
+| GET    | /api/v1/user/:user_id` | get user by user_id    |
+| POST   | /api/v1/user/new`      | create new user        |
+| PUT    | /api/v1/user/:user_id` | update user by user_id |
+| DELETE | /api/v1/user/:user_id` | delete user by user_id |
+
+**User Post Data**
+
+| field      | value                          |
+| ---------- | ------------------------------ |
+| first_name | string (max 15 chars)          |
+| last_name  | string (max 15 chars)          |
+| email      | valid & unique (max 15 char)   |
+| password   | string (7-15 chars)            |
+| gender     | "male" \| "female" \| "others" |
+| birthday   | dd-mm-yyyy                     |
 
 ## Copyright and license
 The MIT License (MIT). Please see License File for more information.
