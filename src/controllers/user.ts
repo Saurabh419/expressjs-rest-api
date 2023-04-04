@@ -102,7 +102,20 @@ export const createNewUser = async (req: Request, res: Response) => {
     res.status(200).json({
       success: true,
       message: "account created successfully",
-      data: data,
+      data: [
+        {
+          user_id: data.user_id,
+          first_name: data.first_name,
+          last_name: data.last_name,
+          email: data.email,
+          gender: data.gender,
+          birthday: data.birthday,
+          active: data.active,
+          admin: data.admin,
+          created_at: data.created_at,
+          updated_at: data.updated_at,
+        },
+      ],
     })
   } catch (err) {
     res.status(500).json({
