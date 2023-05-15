@@ -1,9 +1,9 @@
 import { Request, Response } from "express"
 import bcryptjs from "bcryptjs"
 import { userModel } from "../models"
-import { IUser } from "../types"
+import { TUser } from "../types"
 
-export const getAllUsers = async (_req: Request, res: Response) => {
+export const getAllUsers = async (req: Request, res: Response) => {
   try {
     const user = new userModel.User()
     const userData = await user.readAll()
@@ -89,7 +89,7 @@ export const createNewUser = async (req: Request, res: Response) => {
   try {
     const password_hash = await bcryptjs.hash(password, 10)
     const user = new userModel.User()
-    const data = await user.create(<IUser>{
+    const data = await user.create(<TUser>{
       first_name,
       last_name,
       password_hash,

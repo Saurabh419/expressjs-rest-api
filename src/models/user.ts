@@ -1,20 +1,20 @@
 import { OkPacket } from "mysql2"
 import { connection } from "../db"
-import { IUser } from "../types"
+import { TUser } from "../types"
 
 export class User {
-  readAll(): Promise<IUser[]> {
+  readAll(): Promise<TUser[]> {
     return new Promise((resolve, reject) => {
-      connection.query<IUser[]>("select * from users;", (err, res) => {
+      connection.query<TUser[]>("select * from users;", (err, res) => {
         if (err) reject(err)
         else resolve(res)
       })
     })
   }
 
-  readById(user_id: number): Promise<IUser | undefined> {
+  readById(user_id: number): Promise<TUser | undefined> {
     return new Promise((resolve, reject) => {
-      connection.query<IUser[]>(
+      connection.query<TUser[]>(
         "select * from users where user_id = ?;",
         [user_id],
         (err, res) => {
@@ -25,7 +25,7 @@ export class User {
     })
   }
 
-  create(user: IUser): Promise<IUser> {
+  create(user: TUser): Promise<TUser> {
     return new Promise((resolve, reject) => {
       const query = `INSERT INTO users 
       (first_name, last_name, email, 
@@ -59,7 +59,7 @@ export class User {
     })
   }
 
-  udpate(user: IUser): Promise<IUser | undefined> {
+  udpate(user: TUser): Promise<TUser | undefined> {
     return new Promise((resolve, reject) => {
       const query = `UPDATE users SET 
         first_name = ?, last_name = ?, email = ?, 
